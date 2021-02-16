@@ -7,7 +7,6 @@ import java.util.*;
 
 // 초기 개발 단계에선 구현체로 가벼운 메모리 기반의 데이터 저장소 사용
 // 동시성 문제 고려X, 실무에서는 ConcurrentHashMap, AtomicLong 사용 고려
-@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     // 저장소
