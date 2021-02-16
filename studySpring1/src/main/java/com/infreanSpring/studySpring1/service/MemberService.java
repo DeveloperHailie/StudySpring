@@ -3,15 +3,20 @@ package com.infreanSpring.studySpring1.service;
 import com.infreanSpring.studySpring1.domain.Member;
 import com.infreanSpring.studySpring1.repository.MemberRepository;
 import com.infreanSpring.studySpring1.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public MemberService(MemberRepository memberRepository){
+    @Autowired
+    public MemberService(MemberRepository memberRepository)
+    {
         this.memberRepository = memberRepository;
     }
 
