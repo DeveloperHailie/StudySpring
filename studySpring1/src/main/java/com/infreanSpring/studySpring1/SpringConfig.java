@@ -1,26 +1,24 @@
 package com.infreanSpring.studySpring1;
 
-import com.infreanSpring.studySpring1.repository.JdbcMemberRepository;
-import com.infreanSpring.studySpring1.repository.JdbcTemplateMemberRepository;
-import com.infreanSpring.studySpring1.repository.MemberRepository;
-import com.infreanSpring.studySpring1.repository.MemoryMemberRepository;
+import com.infreanSpring.studySpring1.repository.*;
 import com.infreanSpring.studySpring1.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
     private final DataSource dataSource;
+    private final EntityManager em;
 
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
+    public SpringConfig(DataSource dataSource, EntityManager em) {
         this.dataSource = dataSource;
+        this.em = em;
     }
-
     @Bean
     public MemberService memberService(){
         return new MemberService(memberRepository());
@@ -30,7 +28,8 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
         /*
         data를 Memory 저장에서 Db 저장으로 바꿀 시
         MemoryMemberRepository를 DBMemberRepository로 변환하면 된다.
