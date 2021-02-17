@@ -1,5 +1,6 @@
 package com.infreanSpring.studySpring1;
 
+import com.infreanSpring.studySpring1.aop.TimeTraceAop;
 import com.infreanSpring.studySpring1.repository.*;
 import com.infreanSpring.studySpring1.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,8 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
-/*
+
+    /*
     @Bean
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
