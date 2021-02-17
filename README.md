@@ -21,7 +21,10 @@
 : Gradle은 의존 관계가 있는 라이브러리를 함께 다운받는다. (So, External library가 엄청 많음)<br>
 : Welcome Page 기능 (정적 page) = static/index.html 올려두면 Welcome Page 기능 제공<br>
 : thymeleaf(타임리프) 템플릿 엔진 = 동적 페이지 _ 과거의 jsp/php. 서버에서 프로그래밍해서 html을 동적으로 바꿔서 내리는 것 <br>
-: 웹 애플리케이션의 첫 진입점은 컨트롤러<br>
+: 웹 애플리케이션의 첫 진입점은 컨트롤러 <br>
+: @Controller<br>
+: @GetMapping("/") <br>
+: @RequsestParam("name")String name = GET path?name=입력값<br>
 : 컨트롤러에서 리턴값으로 문자를 반환 -> 뷰 리졸버가 화면을 찾아 처리(스프링 부트 템플릿 엔진 기본 view name 매핑)<br>
 : 빌드하고 실행하는 방법 - window 기준<br>
   #0 IntelliJ에서 돌아가는 서버 중지 <br>
@@ -49,9 +52,21 @@
 : 객체의존성 = 객체가 다르객체와 상호작용(참조)하고 있다면 객체는 다른 객체에 의존성 가짐. 하나의 모듈 바뀌면 다른 모듈까지 변경 필요 
 -> 객체 자체가 아니라, 프레임워크에 의해 객체 의존성 주입.<br>
 : 주입 = 내부가 아닌 외부에서 객체 생성해서 넣어주는 것<br>
+: 즉 의존관계를 어떻게 부여하냐? 이런 느낌인듯<br>
 : 필드 주입, setter 주입, 생성자 주입 있음 -> 의존관계가 실행 중 동적으로 변하는 경우는 거의 없으므로 생성자 주입 권장<br>
 : 스프링 빈 등록하는 방법 2가지 = 컴포넌트 스캔과 자동 의존 관계 설정 / 자바 코드로 직접 스프링 빈 등록하기 (처음에는 1로 했다가 2로 변경)<br>
 : why? 상황에 따라 구현 클래스 변경해야 할 시 자바코드로 직접 스프링 빈 등록하는 것이 유용 <br>
+: 1. 컴포넌트 스캔과 자동 의존 관계 설정 <br>
+: @Component 가 있으면 스트링 빈으로 자동 등록 <br>
+: @Controller, @Service, @Repository는 @Component 포함하는 annotation이므로 스프링 빈으로 자동 등록 <br>
+: @Autowired로 의존 관계 설정 (생성자 1개일땐 @Autowired 생략 가능) <br>
+: 아무 위치에나 @붙이면 되는 건가? -> NO! @SpringBootApplication이 있는 패키지의 하위에 있는 것들을 뒤져서 스프링 빈으로 컴포넌트 스캔하는 것 <br>
+: 스프링은 스프링 컨테이너에 스프링 빈을 등록할 때, 기본적으로 싱글톤(유일하게 하나만 등록해서 공유)으로 등록한다. -> 같은 스프링 빈이면 모두 같은 인스턴스 <br>
+: 2. 자바 코드로 직접 스프링 빈 등록하기 <br>
+: @Controller는 그대로! @Service, @Repository, @Autowired 제거 후 진행 <br>
+: SpringConfig.java 만듦(SpringBootApplication과 같은 위치에) <br>
+: @Configuration <br>
+: @Bean <br>
 
 5. 회원 관리 예제 - 웹 MVC 개발<br>
 
