@@ -123,5 +123,10 @@
 : (AOP 적용 후) memberController가 Proxy memberService(가짜) 호출. 프록시 memberService가 joinPoint.Proceed()하면 그 때 실제 memberService 호출<br>
 : MemberController 생성자에서 memeberService class 이름 출력해서 확인해보자!<br>
 : => 시간 측정 로직을 별도의 공통 로직으로 만들면서 핵심 관심 사항을 깔끔하게 유지할 수 있고 변경이 필요할 시 공통 관심 사항만 변경하면 되며, 원하는 적용 대상 선택 가능.<br>
+: 스프링 빈으로 등록할 때 1. 컴포넌트 스캔과 자동 의존 관계 설정 vs 2. 자바 코드로 직접 등록 <br>
+: 1. 이용하여 @Controller 하면 아무 문제 없이 등록 <br>
+: 2. 자바 코드로 직접 등록(Config에 @Bean으로 등록) 시 빈 순환 참조 에러 발생 <br>
+: why? TimeTraceAop의 AOP 대상을 지정하는 @Around를 보면 SpringConfig의 timeTraceAop() 메서드도 AOP로 처리. 그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드. so 순환참조 문제 발생 <br>
+:@Around("execution(* com.infreanSpring.studySpring1..*(..)) && !target(com.infreanSpring.studySpring1.SpringConfig)") = AOP 대상에서 SpringConfig 빼줘서 문제 해결<br>
 
 8. 다음으로<br>
