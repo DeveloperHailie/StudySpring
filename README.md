@@ -57,12 +57,22 @@
 
 6. 스프링 DB 접근 기술<br>
 : H2 이용 (가벼운 database engine) <br>
-: (과거에 쓰던 방식인) 순수 jdbc <br>
+: 1. (과거에 쓰던 방식인) 순수 jdbc <br>
 : build.gradle dependencies에 jdbc와 h2 라이브러리 추가 <br>
 : application.properties에 url과 driver-class-name 추가 (원래 id, pwd도 적은데 h2라 생략)<br>
 : 기존에 만들어놓은 interface인 MemberRepository를 implements하는 JdbcMemberRepository를 만듦.<br>
 : SpringConfig 변경<br>
 : OCP(Open-Closed Principle) 개방 폐쇄 원칙 = 확장에는 열려있고 수정(변경)에는 닫혀있다. 다형성을 잘 활용하면(인터페이스 구현체를 바꾸면서) 기존 코드 전혀 손대지 않고 설정만으로 구현 클래스 변경 가능 <br>
+: + 스프링 통합 테스트 <br>
+: @SpringBootTest = 스프링 컨테이너와 테스트 함께 실행<br>
+: @Transactional = 테스트 실행 시 트랜잭션 먼저 실행 후 test 끝나면 롤백(why? Test는 반복할 수 있어야 함 -> DB에 넣었던 내용 반영 안 되게!)<br>
+: 3.에서 했던 테스트 케이스(=순수산 JAVA CODE로 작성한, 최소한의 단위 테스트) -> 단위 테스트! (지금 한 것은 스프링 컨테이너, db 연동한 스프링 통합 테스트)<br>
+: 단위 테스트처럼 스프링 컨테이너 없이 테스트 할 수 있도록 훈련 -> db연동 후는 HOW? -> 테스트 전용 가짜 repository(mock 객체, mockito 가짜 객체 만들어주는 라이브러리 주로 사용) 만들어서 테스트 시점에 넣어주기<br>
+: 2. 스프링 JDBC 템플릿 <br>
+: 순수 jdbc와 동일한 환경설정, JDBC API에서 본 반복코드 대부분 제거<br>
+: SQL문은 직접 작성<br>
+: 3. JPA <br>
+
 
 7. AOP<br>
 
