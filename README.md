@@ -72,7 +72,16 @@
 : 순수 jdbc와 동일한 환경설정, JDBC API에서 본 반복코드 대부분 제거<br>
 : SQL문은 직접 작성<br>
 : 3. JPA <br>
-
+: JPA는 기존의 반복 코드는 물론이고 기본적인 SQL도 jpa가 직접 만들어서 실행해줌 <br>
+: SQL, 데이터 중심 설계 -> 객체 중심의 설계로 패러다임 전환<br>
+: build.gradle에 data-jpa 라이브러리 추가<br>
+: properties에 jpa.show-sql=true(jpa가 날리는 쿼리문 본다) jpa.hibernate.ddl-auto=create(객체보고 테이블 다 만들어줌, 근데 우린 이미 다 있으니까 none으로 설정)<br>
+: ORM(Object Relational Mapping) <br>
+: @Entity = Entity 매핑, JPA가 관리하는 객체<br>
+: db에 값 넣으면 id 자동으로 생성 - identity 전략<br>
+: @Id @GeneratedValue(strategy=GenerationType.IDENTITY)<br>
+: @Column(name="username")<br>
+: JPA 사용 시 주의 = Service 계층에서(데이터 변경하는 부분) @Transactional 있어야 함<br>
 
 7. AOP<br>
 
