@@ -1,6 +1,7 @@
 package com.infreanSpring.studySpring1;
 
 import com.infreanSpring.studySpring1.repository.JdbcMemberRepository;
+import com.infreanSpring.studySpring1.repository.JdbcTemplateMemberRepository;
 import com.infreanSpring.studySpring1.repository.MemberRepository;
 import com.infreanSpring.studySpring1.repository.MemoryMemberRepository;
 import com.infreanSpring.studySpring1.service.MemberService;
@@ -28,7 +29,8 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
         /*
         data를 Memory 저장에서 Db 저장으로 바꿀 시
         MemoryMemberRepository를 DBMemberRepository로 변환하면 된다.
