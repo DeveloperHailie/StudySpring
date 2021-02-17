@@ -72,7 +72,7 @@
 : 순수 jdbc와 동일한 환경설정, JDBC API에서 본 반복코드 대부분 제거<br>
 : SQL문은 직접 작성<br>
 : 3. JPA <br>
-: JPA는 기존의 반복 코드는 물론이고 기본적인 SQL도 jpa가 직접 만들어서 실행해줌 <br>
+: JPA는 기존의 반복 코드 + 기본적인 SQL도 jpa가 직접 만들어서 실행해줌 <br>
 : SQL, 데이터 중심 설계 -> 객체 중심의 설계로 패러다임 전환<br>
 : build.gradle에 data-jpa 라이브러리 추가<br>
 : properties에 jpa.show-sql=true(jpa가 날리는 쿼리문 본다) jpa.hibernate.ddl-auto=create(객체보고 테이블 다 만들어줌, 근데 우린 이미 다 있으니까 none으로 설정)<br>
@@ -82,7 +82,18 @@
 : @Id @GeneratedValue(strategy=GenerationType.IDENTITY)<br>
 : @Column(name="username")<br>
 : JPA 사용 시 주의 = Service 계층에서(데이터 변경하는 부분) @Transactional 있어야 함<br>
+: 즉, JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다. <br>
+: 4. 스프링 데이터 JPA <br>
+: JPA를 편리하게 사용하도록 도와주는 기술<br>
+: JPA 설정 그대로<br>
+: 스프링 부트와 JPA라는 기반 위 스프링 데이터 JPA라는 프레임워크<br>
+: 인터페이스를 통한 기본 CRUD 기능도 제공<br>
+: findByName(), findByEmail()처럼 메소드 이름만으로 조회 기능 제공<br>
+: 페이징 기능 자동 제공<br>
+: 복잡한 동적 쿼리는 Querydsl 라이브러리 사용. 혹은 JPA가 제공하는 네이티브 쿼리 사용하거나 스프링 JdbcTemplate 사용 <br>
+: 스프링 데이터 JPA가 SpringDataJpaMemberRepository(JpaRepository를 상속받는 interface)를 스프링 빈으로 자동 등록 해줌(알아서 구현체 만들어서 등록)
 
 7. AOP<br>
+
 
 8. 다음으로<br>
