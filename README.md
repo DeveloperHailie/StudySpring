@@ -91,9 +91,22 @@
 : findByName(), findByEmail()처럼 메소드 이름만으로 조회 기능 제공<br>
 : 페이징 기능 자동 제공<br>
 : 복잡한 동적 쿼리는 Querydsl 라이브러리 사용. 혹은 JPA가 제공하는 네이티브 쿼리 사용하거나 스프링 JdbcTemplate 사용 <br>
-: 스프링 데이터 JPA가 SpringDataJpaMemberRepository(JpaRepository를 상속받는 interface)를 스프링 빈으로 자동 등록 해줌(알아서 구현체 만들어서 등록)
+: 스프링 데이터 JPA가 SpringDataJpaMemberRepository(JpaRepository를 상속받는 interface)를 스프링 빈으로 자동 등록 해줌(알아서 구현체 만들어서 등록)<br>
 
 7. AOP<br>
-
+: Aspect Oriented Programming<br>
+: 공통 관심 사항과 핵심 관심 사항을 분리<br>
+: 예시 ) 모든 메소드의 호출 시간을 측정하고 싶다면?<br>
+: 시간 측정 기능 = 공통 관심 사항 / 핵심 비즈니스 로직(회원가입, 조회 ..) = 핵심 관심 사항<br>
+: 다른 말로는 cross-cutting concern / core concern<br>
+: 만약 이 둘(시간 측정 로직과 핵심 비즈니스 로직)이 분리가 안 되어 있다면 유지보수가 어려움<br>
+: 그래서 AOP 기술로 이 둘을 분리하여, 공통 관심 사항을 원하는 곳에 적용하자!<br>
+: @Aspect <br>
+: @Around("execution(*.hello.hellospring..*(..))") = 보통 패키지 level로 이거 적용할 곳 정함<br>
+: AOP 동작 방식?<br>
+: (AOP 적용 전) memberController가 memberService 호출<br>
+: (AOP 적용 후) memberController가 Proxy memberService(가짜) 호출. 프록시 memberService가 joinPoint.Proceed()하면 그 때 실제 memberService 호출<br>
+: MemberController 생성자에서 memeberService class 이름 출력해서 확인해보자!<br>
+: => 시간 측정 로직을 별도의 공통 로직으로 만들면서 핵심 관심 사항을 깔끔하게 유지할 수 있고 변경이 필요할 시 공통 관심 사항만 변경하면 되며, 원하는 적용 대상 선택 가능.<br>
 
 8. 다음으로<br>
