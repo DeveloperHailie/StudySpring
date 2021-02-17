@@ -6,10 +6,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
 public class TimeTraceAop {
 
-    @Around("execution(* com.infreanSpring.studySpring1..*(..))")
+    @Around("execution(* com.infreanSpring.studySpring1..*(..)) && !target(com.infreanSpring.studySpring1.SpringConfig)")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         System.out.println("START: " + joinPoint.toString());
