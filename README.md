@@ -130,3 +130,20 @@
 :@Around("execution(* com.infreanSpring.studySpring1..*(..)) && !target(com.infreanSpring.studySpring1.SpringConfig)") = AOP 대상에서 SpringConfig 빼줘서 문제 해결<br>
 
 8. 다음으로<br>
+
+
+## studySpring2
+* boostcourse의 웹 백엔드 강의를 듣고 정리한 프로젝트 <br>
+* 강의 링크 : https://www.boostcourse.org/web326/joinLectures/28762 <br>
+
+1. MySQL <br>
+: DBMS (오라클, SQL Server, MySQL, db2 ...) <br>
+: DB = 데이터베이스, 데이터의 집합, 여러 응용 시스템들의 통합된 정보들을 저장하여 운영할 수 있는 공용 데이터의 집합 <br>
+: DB 특성 = 실시간 접근성(사용자 요구 즉시 처리 가능), 계속적 변화(지속적 갱신), 동시 공유성, 내용 참조(저장한 데이터 위치가 아닌 사용자가 요구하는 데이터 내용_값에 따라 참조할 수 있어야 한다)  <br>
+: DBMS = 데이터베이스를 관리하는 소프트웨어, 여러 응용 소프트웨어/시스템이 동시에 DB에 접근하여 사용할 수 있게 함 <br>
+: DBMS 필수 3기능 = 정의기능(논리적, 물리적 구조 정의), 조작 기능(데이터 검색, 삭제, 갱신 등), 제어 기능(DB의 내용 정확성과 안전성 유지하도록 제어) <br>
+: DBMS 장점 = 데이터 중복이 최소화, 데이터 일관성 및 무결성 유지, 데이터 보안 보장 <br>
+: DBMS 단점 = 운영비가 비싸다, 백업 및 복구에 대한 관리 복잡, 부분적 데이터베이스 손실이 정체 시스템 정지 <br>
+
+
+
