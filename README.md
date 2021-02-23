@@ -150,7 +150,7 @@
 : (1) DML? Data Mainpulation Language = 데이터를 조작하기 위해 사용, INSERT/UPDATE/DELETE/SELECT <br>
 : (2) DDL? Data Definition Language = DB의 스키마를 정의하거나 조작하기 위해 사용, CREATE/DROP/ALTER <br>
 : (3) DCL? Data Control Language = 데이터를 제어하는 언어, 권한 관리, 데이터 보안, 무결성 등 정의, GRANT/REVOTE <br> 
-: db 접속(콘솔) = mysql -uroot -p  (옵션 -u : user, -p : password) / mysql -hlocalhost -uconnectuser -p ...<br>
+: db 접속(콘솔) = mysql -uroot -p  (옵션 -u : user, -p : password) / mysql -hlocalhost -uconnectuser -p / mysql -u계정이름 -p db이름 ...<br>
 : (만약 이때 실행이 안된다면?) = 환경 변수 설정 해주기 <br>
 : db생성 = CREATE DATABASE DB이름; <br>
 : 사용자생성 = CREATE USER 계정이름@localhost IDENTIFIED BY '암호'; <br>
@@ -163,9 +163,11 @@
 : 키워드 대소문자 구별 X <br>
 : dbms에 존재하는 데이터베이스 확인하기 = show databases;<br>
 : 사용중인 데이터베이스 전환하기 = use mydb;<br>
-
-
-
+: 테이블 = RDBMS(관계형)의 기본적 저장구조. 한 개이 이상의 column과 0개 이상의 row로 구성<br>
+: column (key) , 특정 데이터 타입 및 크기 가지고 있음 / row (record) , 기본키에 의해 구분. 기본키는 중복 불가<br>
+: 현재 database의 전체 테이블 목록 출력 = show tables;<br>
+: 테이블 구조 출력 = desc 테이블명 혹은 describe 테이블명 <br>
+: 데이터 조작어 = Data Manipulation Language, DML <br>
 
 
 
