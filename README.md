@@ -144,6 +144,28 @@
 : DBMS 필수 3기능 = 정의기능(논리적, 물리적 구조 정의), 조작 기능(데이터 검색, 삭제, 갱신 등), 제어 기능(DB의 내용 정확성과 안전성 유지하도록 제어) <br>
 : DBMS 장점 = 데이터 중복이 최소화, 데이터 일관성 및 무결성 유지, 데이터 보안 보장 <br>
 : DBMS 단점 = 운영비가 비싸다, 백업 및 복구에 대한 관리 복잡, 부분적 데이터베이스 손실이 정체 시스템 정지 <br>
+: MySQL 서버 실행/종료 방법 ) 윈도우 검색 버튼 > 서비스 > My SQL 실행/중지, 시작 유형을 자동으로 설정 시 윈도우 실행될 때 자동으로 실행  <br>
+: SQL(Structured Query Language)은 데이터를 보다 쉽게 검색하고 추가, 삭제, 수정 ... 조작 할 수 있도록 고안된 컴퓨터 언어  <br>
+: 쿼리 = dbms에게 명령 내릴 때 사용하는 문장 <br>
+: (1) DML? Data Mainpulation Language = 데이터를 조작하기 위해 사용, INSERT/UPDATE/DELETE/SELECT <br>
+: (2) DDL? Data Definition Language = DB의 스키마를 정의하거나 조작하기 위해 사용, CREATE/DROP/ALTER <br>
+: (3) DCL? Data Control Language = 데이터를 제어하는 언어, 권한 관리, 데이터 보안, 무결성 등 정의, GRANT/REVOTE <br> 
+: db 접속(콘솔) = mysql -uroot -p  (옵션 -u : user, -p : password) / mysql -hlocalhost -uconnectuser -p ...<br>
+: (만약 이때 실행이 안된다면?) = 환경 변수 설정 해주기 <br>
+: db생성 = CREATE DATABASE DB이름; <br>
+: 사용자생성 = CREATE USER 계정이름@localhost IDENTIFIED BY '암호'; <br>
+: 권한 주기 = GRANT ALL PRIVILEGES ON db이름.* TO '계정이름'@'localhost';<br>
+: 계정이름에게 db이름을 사용할 모든 권한을 주겠다.<br>
+: @’%’는 어떤 클라이언트에서든 접근 가능하다는 의미, @’localhost’는 해당 컴퓨터에서만 접근 가능하다는 의미<br>
+: flush privileges는 DBMS에게 적용을 하라는 의미, 반드시 이 명령 실행! <br>
+: 생성한 db 접속 = mysql -h호스트명 -uDB계정명 -pDB이름 <br>
+: mysql 연결 끊기 = quit 혹은 exit <br>
+: 키워드 대소문자 구별 X <br>
+: dbms에 존재하는 데이터베이스 확인하기 = show databases;<br>
+: 사용중인 데이터베이스 전환하기 = use mydb;<br>
+
+
+
 
 
 
